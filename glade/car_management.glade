@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.0"/>
+  <object class="GtkWindow" id="main_window">
+    <property name="title">Car Management</property>
+    <property name="default_width">600</property>
+    <property name="default_height">400</property>
+    <signal name="destroy" handler="on_main_window_destroy" swapped="no"/>
+
+    <child>
+      <object class="GtkBox" id="main_box">
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <property name="margin">10</property>
+
+        <!-- Add Car Button -->
+        <child>
+          <object class="GtkButton" id="add_car_button">
+            <property name="label">Add Car</property>
+            <signal name="clicked" handler="on_add_car_button_clicked" swapped="no"/>
+          </object>
+        </child>
+
+        <!-- Add Client Button -->
+        <child>
+          <object class="GtkButton" id="add_client_button">
+            <property name="label">Add Client</property>
+            <signal name="clicked" handler="on_add_client_button_clicked" swapped="no"/>
+          </object>
+        </child>
+
+        <!-- Add Contract Button -->
+        <child>
+          <object class="GtkButton" id="add_contract_button">
+            <property name="label">Add Contract</property>
+            <signal name="clicked" handler="on_add_contract_button_clicked" swapped="no"/>
+          </object>
+        </child>
+        
+      </object>
+    </child>
+  </object>
+</interface>

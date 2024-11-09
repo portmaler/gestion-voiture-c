@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- Main Window -->
+  <object class="GtkWindow" id="main_window">
+    <signal name="destroy" handler="on_main_window_destroy" />
+    <child>
+      <object class="GtkBox" orientation="vertical">
+        
+        <!-- Add Car Section -->
+        <child>
+          <object class="GtkEntry" id="car_make_entry">
+            <property name="placeholder-text">Enter car make</property>
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkEntry" id="car_model_entry">
+            <property name="placeholder-text">Enter car model</property>
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkEntry" id="car_year_entry">
+            <property name="placeholder-text">Enter car year</property>
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkEntry" id="car_license_plate_entry">
+            <property name="placeholder-text">Enter license plate</property>
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkButton" id="add_car_button">
+            <property name="label">Add Car</property>
+            <signal name="clicked" handler="on_add_car_button_clicked" />
+          </object>
+        </child>
+        
+        <!-- Car List Section -->
+        <child>
+          <object class="GtkListBox" id="car_list_box">
+            <property name="selection-mode">none</property>
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </object>
+</interface>

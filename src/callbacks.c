@@ -1,48 +1,25 @@
+// callbacks.c
 #include <gtk/gtk.h>
-#include "app_widgets.h"
-#include "car.h"
-#include "client.h"
-#include "contract.h"
+#include "callbacks.h"
+#include "app_widgets.h"  // This can be the header where your AppWidgets struct is defined
 
-// Callback for the "Add Car" button
+// Signal handler for Add Car button
 void on_add_car_button_clicked(GtkButton *button, gpointer user_data) {
-    AppWidgets *widgets = (AppWidgets*)user_data;
-
-    // Here you could add code to open a dialog or input form to add a car.
-    Car *car = create_car(1, "Toyota", "Camry", 2022, "ABC-1234");  // Added license_plate argument
-    display_car(car);
-    free_car(car);
-
-    g_print("Add Car button clicked\n");
+    AppWidgets *widgets = user_data;
+    gtk_stack_set_visible_child(GTK_STACK(widgets->stack), widgets->add_car_box);
 }
 
-
-// Callback for the "Add Client" button
+// Signal handler for Add Client button (empty for now)
 void on_add_client_button_clicked(GtkButton *button, gpointer user_data) {
-    AppWidgets *widgets = (AppWidgets*)user_data;
-
-    // Example of adding a client
-    Client *client = create_client(1, "John Doe", "123 Main St");
-    display_client(client);
-    free_client(client);
-
-    g_print("Add Client button clicked\n");
+    // Add logic for Add Client view later
 }
 
-// Callback for the "Add Contract" button
+// Signal handler for Add Contract button (empty for now)
 void on_add_contract_button_clicked(GtkButton *button, gpointer user_data) {
-    AppWidgets *widgets = (AppWidgets*)user_data;
-
-    // Example of creating a contract
-    Contract *contract = create_contract(1, 1, 1, "2023-01-01", "2023-12-31", 5000.0);
-    display_contract(contract);
-    free_contract(contract);
-
-    g_print("Add Contract button clicked\n");
+    // Add logic for Add Contract view later
 }
 
-// Callback for main window destroy event
-void on_main_window_destroy(GtkWidget *widget, gpointer user_data) {
+// Signal handler for window destruction
+void on_main_window_destroy(GtkWidget *widget, gpointer data) {
     gtk_main_quit();
 }
-

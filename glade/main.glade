@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkWindow" id="main_window">
+    <signal name="destroy" handler="on_main_window_destroy" />
+    <property name="title">Car Management</property> <!-- Set a window title -->
+    <property name="default_width">300</property> <!-- Set the default width of the window -->
+    <property name="default_height">200</property> <!-- Set the default height of the window -->
+    <child>
+      <object class="GtkBox" id="main_box">
+        <property name="orientation">vertical</property> <!-- Vertical layout -->
+        <property name="visible">True</property> <!-- Make sure the box is visible -->
+        
+        <!-- Main Buttons -->
+        <child>
+          <object class="GtkButton" id="add_car_button">
+            <property name="label">Add Car</property>
+            <signal name="clicked" handler="on_add_car_button_clicked" />
+            <property name="visible">True</property> <!-- Ensure the button is visible -->
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkButton" id="add_client_button">
+            <property name="label">Add Client</property>
+            <signal name="clicked" handler="on_add_client_button_clicked" />
+            <property name="visible">True</property> <!-- Ensure the button is visible -->
+          </object>
+        </child>
+        
+        <child>
+          <object class="GtkButton" id="add_contract_button">
+            <property name="label">Add Contract</property>
+            <signal name="clicked" handler="on_add_contract_button_clicked" />
+            <property name="visible">True</property> <!-- Ensure the button is visible -->
+          </object>
+        </child>
+        
+        <!-- Stack to switch between different forms -->
+        <child>
+          <object class="GtkStack" id="stack">
+            <property name="visible">True</property> <!-- Ensure the stack is visible -->
+            
+            <!-- Default view (main window) -->
+            <child>
+              <object class="GtkBox" id="main_box_inner">
+                <property name="orientation">vertical</property> <!-- Vertical layout for inner box -->
+                <child>
+                  <object class="GtkLabel" id="main_label">
+                    <property name="label">Main Window - Select an Action</property>
+                    <property name="visible">True</property> <!-- Ensure the label is visible -->
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="info_label">
+                    <property name="label">Select a button above to proceed.</property>
+                    <property name="visible">True</property> <!-- Ensure the label is visible -->
+                  </object>
+                </child>
+              </object>
+            </child>
+            
+            <!-- Add Car Form -->
+            <child>
+              <object class="GtkBox" id="add_car_box">
+                <property name="orientation">vertical</property> <!-- Vertical layout for the Add Car form -->
+                <child>
+                  <object class="GtkEntry" id="car_make_entry">
+                    <property name="placeholder-text">Enter car make</property>
+                    <property name="visible">True</property> <!-- Ensure the entry is visible -->
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="car_model_entry">
+                    <property name="placeholder-text">Enter car model</property>
+                    <property name="visible">True</property> <!-- Ensure the entry is visible -->
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="car_year_entry">
+                    <property name="placeholder-text">Enter car year</property>
+                    <property name="visible">True</property> <!-- Ensure the entry is visible -->
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="car_license_plate_entry">
+                    <property name="placeholder-text">Enter license plate</property>
+                    <property name="visible">True</property> <!-- Ensure the entry is visible -->
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="add_car_confirm_button">
+                    <property name="label">Add Car</property>
+                    <signal name="clicked" handler="on_add_car_confirm_button_clicked" />
+                    <property name="visible">True</property> <!-- Ensure the button is visible -->
+                  </object>
+                </child>
+              </object>
+            </child>
+            
+            <!-- Add Client and Add Contract forms will be added later -->
+            
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
